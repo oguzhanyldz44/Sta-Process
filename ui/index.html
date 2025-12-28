@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STA Process UI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="interaction-text" style="display: none;">
+        <div class="key-cap">E</div>
+        <span id="action-label">İşlem Yap</span>
+    </div>
+
+    <div id="process-ui" style="display: none;">
+        <div class="progress-container">
+            <div id="process-label">Yükleniyor...</div>
+            <div class="progress-bar-wrapper">
+                <div id="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+    <div id="alert-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+https://discord.gg/9qpNtej4GH You can contact me from here, my name is oğuz
