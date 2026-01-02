@@ -31,6 +31,20 @@ local function SendWebhookAndKick(src, reason)
     end
 end
 RegisterServerEvent('sta-process:server:giveItem', function()
+    local ped = GetPlayerPed(src)
+    local coords = GetEntityCoords(ped)
+    local isNear = false
+    
+    for _, spot in ipairs(Config.HarvestSpots) do
+        if #(coords - spot) < 10.0 then 
+            isNear = true
+            break
+        end
+    end
+
+    if not isNear then
+        return SendWebhookAndKick(src, 'Trigger kullanımı.')
+    end
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local item = Config.HarvestSettings.item
@@ -46,7 +60,15 @@ RegisterServerEvent('sta-process:server:giveItem', function()
         end
     end
 end)
+
 RegisterServerEvent('sta-process:server:processItem', function()
+    local ped = GetPlayerPed(src)
+    local coords = GetEntityCoords(ped)
+    local processDist = #(coords - Config.ProcessSpot)
+
+    if processDist > 10.0 then 
+        return SendWebhookAndKick(src, 'Trigger Kullanımı.')
+    end
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local costItem = Config.ProcessSettings.costItem
